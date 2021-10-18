@@ -15,6 +15,7 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "phpoffice/phpspreadsheet": "^1.16"
+    "phpoffice/phpspreadsheet": "^1.16",
+    "phpfunction/app": "^1.0"
   }
 }

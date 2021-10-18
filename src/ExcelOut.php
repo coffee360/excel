@@ -2,6 +2,7 @@
 
 namespace Phpfunction\Excel;
 
+use Phpfunction\App\StringApp;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
