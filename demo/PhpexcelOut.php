@@ -2,7 +2,7 @@
 
 require "../vendor/autoload.php";
 
-$a        = new \Phpfunction\Phpexcel\PhpexcelOut();
+$a        = new \Phpfunction\Excel\ExcelOut();
 $a->head  = [
     'name' => '姓名',
     'sex'  => '性别（男女）',
