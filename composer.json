@@ -1,0 +1,20 @@
+{
+  "name": "phpfunction/excel",
+  "description": "excel",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Phpfunction\\Excel\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "phpfunction",
+      "email": "164589895@qq.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "phpoffice/phpspreadsheet": "^1.16"
+  }
+}
