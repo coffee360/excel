@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpfunction\Excel;
+namespace Phpfunction\Phpexcel;
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -10,9 +10,9 @@ use PhpOffice\PhpSpreadsheet\Style\Fill;
 /**
  * Excel导出
  * Class ExcelOut
- * @package Phpfunction\Excel
+ * @package Phpfunction\Phpexcel
  */
-class ExcelOut
+class PhpexcelOut
 {
     public $file  = '';          // 文件名
     public $title = '';          // 表名

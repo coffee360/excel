@@ -1,10 +1,10 @@
 {
-  "name": "phpfunction/excel",
-  "description": "excel",
+  "name": "phpfunction/phpexcel",
+  "description": "phpexcel",
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "Phpfunction\\Excel\\": "src/"
+      "Phpfunction\\Phpexcel\\": "src/"
     }
   },
   "authors": [
