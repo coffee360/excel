@@ -118,7 +118,7 @@ class ExcelOut
                         ->setARGB('FF808080');
                 }
 
-                $objSheet->setCellValue($col . ($k + 1),  (new StringApp())->removeEmoji($v2));
+                $objSheet->setCellValue($col . ($k + 1), " " . (new StringApp())->removeEmoji($v2));
 
                 // 数字右对齐
                 $style_alignment = $this->getStyleAlignment();
