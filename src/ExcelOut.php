@@ -212,7 +212,7 @@ class ExcelOut
                 $bold      = 0;
                 if (is_array($v2)) {
                     $text      = $v2['text'] ?? "";
-                    $width_col = $v2['col'] ?? 1;
+                    $width_col = $v2['width_col'] ?? 1;
                     $height    = $v2['height'] ?? 0;
                     $size      = $v2['size'] ?? 0;
                     $bold      = $v2['bold'] ?? 0;
