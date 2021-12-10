@@ -21,6 +21,8 @@ class ExcelOut
     public $width = [];          // 表头
     public $list  = [];          // 数据
 
+    public $file_save = "";     // 保存的文件
+
 
     public function __construct()
     {
@@ -148,10 +150,10 @@ class ExcelOut
      */
     public function saveWithStyle()
     {
-        if (empty($this->file)) {
+        if (empty($this->file) && empty($this->file_save)) {
             return [
                 'errcode' => 1,
-                'errmsg'  => 'file不能为空',
+                'errmsg'  => 'file和file_save不能同时为空',
             ];
         }
 
@@ -265,12 +267,17 @@ class ExcelOut
             }
         }
 
-        /*--------------下面是设置其他信息------------------*/
-        header('Content-Type: application/vnd.ms-excel');
-        header("Content-Disposition: attachment;filename=" . urlencode($this->file) . ".xls");
-        header('Cache-Control: max-age=0');
         $objWriter = IOFactory::createWriter($newExcel, 'Xls');
-        $objWriter->save('php://output');
+        if (!empty($this->file_save)) {
+            $objWriter->save($this->file_save);
+        } else {
+            /*--------------下面是设置其他信息------------------*/
+            header('Content-Type: application/vnd.ms-excel');
+            header("Content-Disposition: attachment;filename=" . urlencode($this->file) . ".xls");
+            header('Cache-Control: max-age=0');
+
+            $objWriter->save('php://output');
+        }
     }
 
 }
