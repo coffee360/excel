@@ -50,6 +50,9 @@ class ExcelIn
             $tmp["A"] = $sheet
                 ->getCell("A" . $i)
                 ->getCalculatedValue();
+            $tmp["B"] = $sheet
+                ->getCell("B" . $i)
+                ->getCalculatedValue();
             $data[]   = $tmp;
         }
 
