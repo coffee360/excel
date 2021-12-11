@@ -254,7 +254,7 @@ class ExcelOut
                 }
 
                 // 2.2.单元格内容
-                $objSheet->setCellValue($col . ($k + 1), " " . (new StringApp())->removeEmoji($text));
+                $objSheet->setCellValue($col . ($k + 1), (new StringApp())->removeEmoji($text));
 
                 // 2.3.单元格对对齐，数字右对齐
                 $style_alignment = $this->getStyleAlignment();
