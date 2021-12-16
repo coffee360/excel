@@ -53,6 +53,21 @@ class ExcelIn
             $tmp["B"] = $sheet
                 ->getCell("B" . $i)
                 ->getCalculatedValue();
+            $tmp["C"] = $sheet
+                ->getCell("C" . $i)
+                ->getCalculatedValue();
+            $tmp["D"] = $sheet
+                ->getCell("D" . $i)
+                ->getCalculatedValue();
+            $tmp["E"] = $sheet
+                ->getCell("E" . $i)
+                ->getCalculatedValue();
+            $tmp["F"] = $sheet
+                ->getCell("F" . $i)
+                ->getCalculatedValue();
+            $tmp["G"] = $sheet
+                ->getCell("G" . $i)
+                ->getCalculatedValue();
             $data[]   = $tmp;
         }
 
