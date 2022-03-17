@@ -209,6 +209,7 @@ class ExcelOut
 
                 $text      = $v2;
                 $width_col = 1;
+                $height_row = 1;
                 $height    = 0;
                 $size      = 0;
                 $bold      = 0;
