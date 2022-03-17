@@ -213,11 +213,12 @@ class ExcelOut
                 $size      = 0;
                 $bold      = 0;
                 if (is_array($v2)) {
-                    $text      = $v2['text'] ?? "";
-                    $width_col = $v2['width_col'] ?? 1;
-                    $height    = $v2['height'] ?? 0;
-                    $size      = $v2['size'] ?? 0;
-                    $bold      = $v2['bold'] ?? 0;
+                    $text       = $v2['text'] ?? "";
+                    $width_col  = $v2['width_col'] ?? 1;
+                    $height_row = $v2['height_row'] ?? 1;
+                    $height     = $v2['height'] ?? 0;
+                    $size       = $v2['size'] ?? 0;
+                    $bold       = $v2['bold'] ?? 0;
                 }
 
                 // 2.写入数据
@@ -229,6 +230,9 @@ class ExcelOut
                         $col_to = 'A' . chr(65 + $k2 + $width_col - 1 - 26);
                     }
                     $objSheet->mergeCells($col . ($k + 1) . ":" . $col_to . ($k + 1));
+                }
+                if ($height_row > 1) {
+                    $objSheet->mergeCells($col . ($k + 1) . ":" . $col . ($k + $height_row));
                 }
                 $objSheet->getColumnDimension($col)
                     ->setWidth($width);
