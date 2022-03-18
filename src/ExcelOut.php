@@ -226,6 +226,7 @@ class ExcelOut
                     $width_col  = $v2['width_col'] ?? 1;
                     $height_row = $v2['height_row'] ?? 1;
                     $height     = $v2['height'] ?? 0;
+                    $width      = $v2['width'] ?? 30;
                     $size       = $v2['size'] ?? 0;
                     $bold       = $v2['bold'] ?? 0;
                     // 1=左，2=中，3=右
