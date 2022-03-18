@@ -214,6 +214,13 @@ class ExcelOut
                 $size      = 0;
                 $bold      = 0;
                 if (is_array($v2)) {
+                    if (!empty($v2['num_col'])) {
+                        $v2['width_col'] = $v2['num_col'];
+                    }
+                    if (!empty($v2['num_row'])) {
+                        $v2['height_row'] = $v2['num_row'];
+                    }
+
                     $text       = $v2['text'] ?? "";
                     $width_col  = $v2['width_col'] ?? 1;
                     $height_row = $v2['height_row'] ?? 1;
