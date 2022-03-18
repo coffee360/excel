@@ -207,12 +207,13 @@ class ExcelOut
                 // 1.样式传值
                 $width = $this->width[$k2] ?? 30;
 
-                $text      = $v2;
-                $width_col = 1;
+                $text       = $v2;
+                $width_col  = 1;
                 $height_row = 1;
-                $height    = 0;
-                $size      = 0;
-                $bold      = 0;
+                $height     = 0;
+                $size       = 0;
+                $bold       = 0;
+                $text_align = 0;
                 if (is_array($v2)) {
                     if (!empty($v2['num_col'])) {
                         $v2['width_col'] = $v2['num_col'];
@@ -227,6 +228,8 @@ class ExcelOut
                     $height     = $v2['height'] ?? 0;
                     $size       = $v2['size'] ?? 0;
                     $bold       = $v2['bold'] ?? 0;
+                    // 1=左，2=中，3=右
+                    $text_align = $v2['text_align'] ?? 0;
                 }
 
                 // 2.写入数据
@@ -272,6 +275,9 @@ class ExcelOut
                 $style_alignment = $this->getStyleAlignment();
                 if (is_numeric($text)) {
                     $style_alignment = $this->getStyleAlignment(3);
+                }
+                if (!empty($text_align)) {
+                    $style_alignment = $this->getStyleAlignment($text_align) ?? $style_alignment;
                 }
                 $newExcel->getActiveSheet()
                     ->getStyle($col . ($k + 1))
