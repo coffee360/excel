@@ -75,4 +75,42 @@ class ExcelIn
     }
 
 
+    /**
+     * 数据列表
+     */
+    public function getDataExt()
+    {
+        $file_name = $this->file;
+        $type      = pathinfo($file_name);
+        $type      = strtolower($type["extension"]);
+
+        if ("xlsx" == $type) {
+            $objReader = IOFactory::createReader("Xlsx");
+        } elseif ("xls" == $type) {
+            $objReader = IOFactory::createReader("Xls");
+        } else {
+            return "文件类型不正确";
+        }
+
+        $objPHPExcel   = $objReader->load($file_name);
+        $sheet         = $objPHPExcel->getSheet(0);
+        $highestRow    = $sheet->getHighestRow();    // 取得总行数
+        $highestColumn = $sheet->getHighestColumn(); // 取得总列数
+        $data          = [];
+
+        for ($i = 1; $i <= $highestRow; $i++) {
+            $tmp = [];
+            for ($j = 0; $j < 26; $j++) {
+                $car       = chr(65 + $j);
+                $tmp[$car] = $sheet
+                    ->getCell($car . $i)
+                    ->getCalculatedValue();
+            }
+            $data[] = $tmp;
+        }
+
+        return $data;
+    }
+
+
 }
