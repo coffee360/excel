@@ -228,11 +228,13 @@ class ExcelOut
                 // 2.写入数据
                 // 2.1.合并单元格
                 if ($num_col > 1) {
-                    if ($k2 < 26) {
-                        $col_to = chr(65 + $k2 + $num_col - 1);
-                    } elseif ($k2 >= 26) {
-                        $col_to = 'A' . chr(65 + $k2 + $num_col - 1 - 26);
+                    $num = $k2 + $num_col - 1;
+                    if ($num > 26) {
+                        $col_to = 'A' . chr(65 + $num - 26);
+                    } else {
+                        $col_to = chr(65 + $num);
                     }
+                    
                     $objSheet->mergeCells($col . ($k + 1) . ":" . $col_to . ($k + 1));
                 }
                 if ($num_row > 1) {
