@@ -208,43 +208,35 @@ class ExcelOut
                 $width = $this->width[$k2] ?? 30;
 
                 $text       = $v2;
-                $width_col  = 1;
-                $height_row = 1;
+                $num_col    = 1;
+                $num_row    = 1;
                 $height     = 0;
                 $size       = 0;
                 $bold       = 0;
                 $text_align = 0;
                 if (is_array($v2)) {
-                    if (!empty($v2['num_col'])) {
-                        $v2['width_col'] = $v2['num_col'];
-                    }
-                    if (!empty($v2['num_row'])) {
-                        $v2['height_row'] = $v2['num_row'];
-                    }
-
-                    $text       = $v2['text'] ?? "";
-                    $width_col  = $v2['width_col'] ?? 1;
-                    $height_row = $v2['height_row'] ?? 1;
-                    $height     = $v2['height'] ?? 0;
-                    $width      = $v2['width'] ?? 30;
-                    $size       = $v2['size'] ?? 0;
-                    $bold       = $v2['bold'] ?? 0;
+                    $text    = $v2['text'] ?? "";
+                    $num_col = $v2['num_col'] ?? 1;
+                    $num_row = $v2['num_row'] ?? 1;
+                    $height  = $v2['height'] ?? 0;
+                    $size    = $v2['size'] ?? 0;
+                    $bold    = $v2['bold'] ?? 0;
                     // 1=左，2=中，3=右
                     $text_align = $v2['text_align'] ?? 0;
                 }
 
                 // 2.写入数据
                 // 2.1.合并单元格
-                if ($width_col > 1) {
+                if ($num_col > 1) {
                     if ($k2 < 26) {
-                        $col_to = chr(65 + $k2 + $width_col - 1);
+                        $col_to = chr(65 + $k2 + $num_col - 1);
                     } elseif ($k2 >= 26) {
-                        $col_to = 'A' . chr(65 + $k2 + $width_col - 1 - 26);
+                        $col_to = 'A' . chr(65 + $k2 + $num_col - 1 - 26);
                     }
                     $objSheet->mergeCells($col . ($k + 1) . ":" . $col_to . ($k + 1));
                 }
-                if ($height_row > 1) {
-                    $objSheet->mergeCells($col . ($k + 1) . ":" . $col . ($k + $height_row));
+                if ($num_row > 1) {
+                    $objSheet->mergeCells($col . ($k + 1) . ":" . $col . ($k + $num_row));
                 }
                 $objSheet->getColumnDimension($col)
                     ->setWidth($width);
